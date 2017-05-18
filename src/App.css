@@ -4,5 +4,9 @@
 
 .chart {
   margin: 10em, auto;
-  width: 50%
+}
+
+Axis {
+  margin: 10em, auto;
+  width: inherit;
 }
