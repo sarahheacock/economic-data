@@ -1,8 +1,9 @@
 {
   "name": "economic-data",
+  "homepage": "https://sarahheacock.github.io/economic-data/",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sarahheacock.github.io/economic-data/",
+
   "dependencies": {
     "axios": "^0.16.1",
     "bootstrap": "^3.3.7",
