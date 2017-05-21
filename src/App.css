@@ -1,12 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  background-color: WhiteSmoke;
+  color: "DimGray";
+}
+
+h1 {
+  padding:2%;
+
+  font-family: serif;
+  margin-bottom: -50px;
+}
+
+#root {
+
+  background-color: White;
+  width: 90%;
+  margin: auto;
+  margin-top: 5%;
+
+}
+
 .App {
   text-align: center;
 }
 
 .chart {
   margin: 10em, auto;
+
 }
 
 Axis {
   margin: 10em, auto;
   width: inherit;
+}
+
+.look {
+  opacity: 0;
+  position: fixed;
+  font-family: "san-serif";
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+.axis line {
+  stroke: #96ceb4;
+}
+
+.axis path {
+  stroke: #96ceb4;
+}
+
+.axis text {
+  fill: #96ceb4;
+  font-weight: bold;
+}
+
+.axisLabel {
+  font-size: 12px;
+  fill: #ffcc5c;
+  font-weight: bold;
+}
+
+.rectangle {
+  z-index: -1;
+}
+
+.over {
+  fill: 'red';
+}
+
+text {
+  fill: "DimGray";
 }

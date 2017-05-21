@@ -9,6 +9,7 @@ import Axes from './Axes.js';
 
 const WIDTH = $(window).width();
 const HEIGHT = $(window).height();
+const ADJUST = 0.8;
 
 class App extends Component {
 
@@ -18,8 +19,8 @@ class App extends Component {
     this.state = {
       "name": "",
       "e_data": [],
-      "width": Math.round(WIDTH * 0.7),
-      "height": Math.round(HEIGHT * 0.8)
+      "width": Math.round(WIDTH * ADJUST),
+      "height": Math.round(HEIGHT * ADJUST)
     }
   }
 
@@ -46,8 +47,8 @@ class App extends Component {
   componentDidMount() {
     const node = this.refs.graph;
     $(window).on('resize', () => {
-      const new_width = Math.round($(window).width() * 0.7);
-      const new_height = Math.round($(window).height() * 0.8);
+      const new_width = Math.round($(window).width() * ADJUST);
+      const new_height = Math.round($(window).height() * ADJUST);
       this.state.width = new_width;
       this.state.height = new_height;
       this.setState(this.state);
@@ -62,7 +63,7 @@ class App extends Component {
 
     return (
       <div className="App">
-      <h1>{this.state.name}</h1>
+      <div><h1>Gross Domestic Product Over Time</h1></div>
       <svg className="chart" ref="graph" id="graph" height={this.state.height} width={this.state.width}>
         <title>Hello</title>
         <Axes

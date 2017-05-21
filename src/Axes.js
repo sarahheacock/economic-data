@@ -27,14 +27,19 @@ class Axes extends Component {
 
     const xScale = d3.scaleTime().domain([mindate, maxdate]).range([PADDING, WIDTH - PADDING]);
     const xAxis = d3.axisBottom(xScale);
+    if(this.props.width <= 500) xAxis.ticks(d3.timeYear.every(10));
 
     const yScale = d3.scaleLinear().domain([0, max]).range([HEIGHT - PADDING, PADDING]);
     const yAxis = d3.axisLeft(yScale);
+    yAxis.ticks(10);
+    if(this.props.height <= 500) yAxis.ticks(5);
+
 
     const xnode = this.refs.Xaxis;
     const ynode = this.refs.Yaxis;
     d3.select(xnode).call(xAxis);
     d3.select(ynode).call(yAxis);
+
   }
 
   findMinDate() {
@@ -71,7 +76,7 @@ class Axes extends Component {
       + (this.props.height - this.props.padding)
       + ")";
 
-    
+
     const dataArray = (this.props.data.length === 0) ?
   <g></g> : this.props.data.map((d, index) => (
       <Data
@@ -91,12 +96,15 @@ class Axes extends Component {
     const tranX = "translate(0," + (this.props.height - this.props.padding) + ")";
     //const tranX = translate(0, this.props.height - this.props.padding);
     const tranY = "translate(" + this.props.padding + ", 0)";
-    console.log("s_w", this.props.width - (this.props.padding * 2));
+    const tranAxis = "translate(" + (this.props.padding + 15) + ", " + (this.props.height - this.props.padding - 5) + ")";
+    //console.log("s_w", this.props.width - (this.props.padding * 2));
     return (
       <g>
         {dataArray}
         <g className="axis" ref="Xaxis" transform={tranX}></g>
+        <text className="axisLabel" y="30" x={this.props.width / 2} transform={tranX}>Date</text>
         <g className="axis" ref="Yaxis" transform={tranY}></g>
+        <text className="axisLabel" x={this.props.height/6} transform={tranAxis + "rotate(-90)"}>GDP (billions)</text>
       </g>
     );
   }
